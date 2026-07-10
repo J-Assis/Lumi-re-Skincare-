@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - Lumière</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: var(--clr-bg); color: var(--clr-text-dark);">
+
+    <!-- HEADER IGUAL AO DO SITE -->
+    <header style="background-color: rgba(253, 251, 247, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--clr-border); position: sticky; top: 0; z-index: 1000; padding: 1.5rem 2rem;">
+        <nav style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 3rem;">
+            <a href="index.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Home</a>
+            <a href="loja.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Loja</a>
+            <a href="ingredientes.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Ativos</a>
+            <a href="sobre.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">O Manifesto</a>
+            <a href="resultados.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Casos Reais</a>
+            <a href="blog.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Diário</a>
+        </nav>
+    </header>
+
+    <main style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; flex-wrap: wrap; gap: 4rem; margin-top: 2rem;">
+            
+            <!-- Menu Lateral do Perfil -->
+            <div style="flex: 1; min-width: 250px; border-right: 1px solid var(--clr-border); padding-right: 2rem;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem;">
+                    <div style="width: 60px; height: 60px; background: #e6baa8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--ff-serif); font-size: 1.5rem; color: white;">JA</div>
+                    <div>
+                        <h3 style="font-family: var(--ff-serif); font-size: 1.2rem; margin: 0;">Olá, J-Assis</h3>
+                        <p style="font-family: var(--ff-sans); font-size: 0.8rem; color: var(--clr-text-muted); margin: 0;">Cliente Lumière Idéal</p>
+                    </div>
+                </div>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.5rem; font-family: var(--ff-sans); font-size: 0.9rem;">
+                    <li><a href="#" style="color: var(--clr-primary); font-weight: 700; text-decoration: none;"><i class="fa-regular fa-user" style="margin-right: 10px;"></i> Meus Dados</a></li>
+                    <li><a href="#" style="color: var(--clr-text-dark); text-decoration: none;"><i class="fa-solid fa-box-open" style="margin-right: 10px;"></i> Histórico de Pedidos</a></li>
+                    <li><a href="#" style="color: var(--clr-text-dark); text-decoration: none;"><i class="fa-regular fa-heart" style="margin-right: 10px;"></i> Lista de Desejos</a></li>
+                    <li><a href="#" style="color: #c94a4a; text-decoration: none; border-top: 1px solid var(--clr-border); padding-top: 1.5rem; display: block;"><i class="fa-solid fa-arrow-right-from-bracket" style="margin-right: 10px;"></i> Sair da Conta</a></li>
+                </ul>
+            </div>
+
+            <!-- Dados de Entrega e Assinatura -->
+            <div style="flex: 3; min-width: 300px;">
+                <h2 style="font-family: var(--ff-serif); font-size: 2rem; font-weight: 400; margin-bottom: 2rem;">Dados da Conta</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 24px; border: 1px solid var(--clr-border);">
+                        <h4 style="font-family: var(--ff-serif); font-size: 1.1rem; margin-top: 0;">Endereço de Entrega</h4>
+                        <p style="font-family: var(--ff-sans); font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.6;">Alameda Lorena, 1420 — Apt 72<br>Jardins, São Paulo - SP<br>CEP 01424-001</p>
+                        <a href="#" style="font-family:var(--ff-sans); font-size: 0.75rem; color: var(--clr-primary); font-weight: 700; text-decoration: none; text-transform: uppercase;">Editar endereço</a>
+                    </div>
+
+                    <div style="background: #faf6f2; padding: 2rem; border-radius: 24px; border: 1px solid #e6baa8;">
+                        <h4 style="font-family: var(--ff-serif); font-size: 1.1rem; margin-top: 0; color: var(--clr-primary);">Clube Lumière Ativo</h4>
+                        <p style="font-family: var(--ff-sans); font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.6;">Seu plano mensal garante o envio automático do <strong>Radiance Moisturizer</strong> todo dia 05 do mês com 15% OFF.</p>
+                        <span style="font-family: var(--ff-sans); font-size: 0.7rem; background: #e6baa8; color: white; padding: 3px 8px; border-radius: 10px; font-weight: 700;">PRÓXIMO ENVIO: 05/08/2026</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
