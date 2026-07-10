@@ -172,15 +172,17 @@
         }, 2000);
     }
 
-    function addToCart(name, price, img) {
-        const existingItem = cart.find(item => item.name === name);
-        if(existingItem) {
+function addToCart(name, price, img) {
+        const existingItem = window.cart.find(item => item.name === name);
+        if (existingItem) {
             existingItem.quantity += 1;
         } else {
-            cart.push({name, price, img, quantity: 1});
+            window.cart.push({name, price, img, quantity: 1});
         }
-        updateCartUI();
-        showToast();
+        
+        updateCartUI(); // Atualiza os itens e o totalizador
+        showToast();    // Mostra o aviso sutil "Adicionado ao carrinho"
+        toggleCart();   // <--- ESSA LINHA FAZ A ABA DO CARRINHO ABRIR AO LADO!
     }
 
     function removeFromCart(name) {
