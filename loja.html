@@ -209,42 +209,67 @@
             updateCartUI();
         }
 
-        function updateCartUI() {
-            const container = document.getElementById('cartItemsContainer');
-            const totalValueSpan = document.getElementById('cartTotalValue');
-            const badgeCount = document.querySelector('.cart-count');
+function updateCartUI() {
+        const container = document.getElementById('cartItemsContainer');
+        const totalValueSpan = document.getElementById('cartTotalValue');
+        const badgeCount = document.querySelector('.cart-count');
+        
+        container.innerHTML = '';
+        
+        if(cart.length === 0) {
+            container.innerHTML = '<p style="font-family: var(--ff-sans); color: var(--clr-text-muted); text-align: center; margin-top: 3rem;">Sua sacola está vazia.</p>';
+            totalValueSpan.innerText = 'R$ 0,00';
+            if(badgeCount) badgeCount.innerText = '0';
+            return;
+        }
+
+        let total = 0;
+        let totalItems = 0;
+
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+            totalItems += item.quantity;
+
+            container.innerHTML += `
+                <div style="display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <img src="${item.img}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 12px;">
+                    
+                    <div style="flex: 1; font-family: var(--ff-sans);">
+                        <h4 style="margin: 0 0 0.4rem; font-family: var(--ff-serif); font-size: 1rem; font-weight:400; color: var(--clr-text-dark);">${item.name}</h4>
+                        
+                        <div style="display: flex; align-items: center; gap: 0.8rem;">
+                            <div style="display: flex; align-items: center; border: 1px solid #e4ede8; border-radius: 50px; background: #fff; padding: 0.2rem 0.5rem;">
+                                <button onclick="changeQuantity('${item.name}', -1)" style="background: none; border: none; cursor: pointer; padding: 0 0.4rem; font-weight: bold; color: #332521;">-</button>
+                                
+                                <span style="font-size: 0.85rem; font-weight: 600; min-width: 16px; text-align: center; color: #332521;">${item.quantity}</span>
+                                
+                                <button onclick="changeQuantity('${item.name}', 1)" style="background: none; border: none; cursor: pointer; padding: 0 0.4rem; font-weight: bold; color: #332521;">+</button>
+                            </div>
+                            <span style="color: var(--clr-text-muted); font-size: 0.85rem;">x R$ ${item.price}</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="removeFromCart('${item.name}')" style="background: none; border: none; color: #c94a4a; cursor: pointer; font-size: 0.9rem; padding: 0.5rem;"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            `;
+        });
+
+        totalValueSpan.innerText = `R$ ${total},00`;
+        if(badgeCount) badgeCount.innerText = totalItems;
+    }
+
+    // FUNÇÃO AUXILIAR PARA CONTROLAR OS CLIQUES DE + E -
+    function changeQuantity(name, change) {
+        const item = cart.find(product => product.name === name);
+        if (item) {
+            item.quantity += change;
             
-            container.innerHTML = '';
-            
-            if(cart.length === 0) {
-                container.innerHTML = '<p style="font-family: var(--ff-sans); color: var(--clr-text-muted); text-align: center; margin-top: 3rem;">Sua sacola está vazia.</p>';
-                totalValueSpan.innerText = 'R$ 0,00';
-                if(badgeCount) badgeCount.innerText = '0';
+            // Se a quantidade chegar a 0 ou menos, removemos o item automaticamente
+            if (item.quantity <= 0) {
+                removeFromCart(name);
                 return;
             }
-
-            let total = 0;
-            let totalItems = 0;
-
-            cart.forEach(item => {
-                total += item.price * item.quantity;
-                totalItems += item.quantity;
-
-                container.innerHTML += `
-                    <div style="display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                        <img src="${item.img}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 12px;">
-                        <div style="flex: 1; font-family: var(--ff-sans);">
-                            <h4 style="margin: 0 0 0.2rem; font-family: var(--ff-serif); font-size: 1rem; font-weight:400;">${item.name}</h4>
-                            <span style="color: var(--clr-text-muted); font-size: 0.85rem;">${item.quantity}x R$ ${item.price}</span>
-                        </div>
-                        <button onclick="removeFromCart('${item.name}')" style="background: none; border: none; color: #c94a4a; cursor: pointer; font-size: 0.9rem;"><i class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                `;
-            });
-
-            totalValueSpan.innerText = `R$ ${total},00`;
-            if(badgeCount) badgeCount.innerText = totalItems;
-        }
+            
 
         function checkout() {
             if(cart.length === 0) {
