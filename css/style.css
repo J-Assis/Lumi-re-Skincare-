@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
 /* ==========================================================================
    RESET & BASE VARIABLES
    ========================================================================== */
 :root {
-    /* Color Palette */
     --clr-bg-main: #FDFBF7;
     --clr-bg-alt: #F5EFEB;
     --clr-primary: #D29A82;
@@ -13,11 +14,9 @@
     --clr-white: #FFFFFF;
     --clr-border: rgba(109, 85, 79, 0.15);
     
-    /* Typography */
     --ff-serif: 'Playfair Display', Georgia, serif;
     --ff-sans: 'Plus Jakarta Sans', sans-serif;
     
-    /* Transitions */
     --transition-smooth: cubic-bezier(0.25, 1, 0.5, 1);
     --speed-fast: 0.2s;
     --speed-normal: 0.4s;
@@ -27,11 +26,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-    font-size: 16px;
 }
 
 body {
@@ -124,8 +118,7 @@ ul {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(253, 251, 247, 0.85);
-    backdrop-filter: blur(10px);
+    background-color: rgba(253, 251, 247, 0.95);
     border-bottom: 1px solid rgba(109, 85, 79, 0.05);
     transition: background-color var(--speed-fast);
 }
@@ -421,7 +414,6 @@ ul {
     top: 1.25rem;
     left: 1.25rem;
     background-color: rgba(253, 251, 247, 0.8);
-    backdrop-filter: blur(4px);
     padding: 0.4rem 1rem;
     border-radius: 50px;
     font-size: 0.75rem;
@@ -482,12 +474,6 @@ ul {
 .press-logo img {
     max-height: 28px;
     object-fit: contain;
-    filter: grayscale(1);
-    transition: filter var(--speed-fast);
-}
-
-.press-logo img:hover {
-    filter: grayscale(0);
 }
 
 /* ==========================================================================
@@ -694,10 +680,6 @@ ul {
     outline: none;
 }
 
-.newsletter-form input::placeholder {
-    color: #A0908C;
-}
-
 .btn-submit {
     background-color: var(--clr-primary);
     color: var(--clr-white);
@@ -797,7 +779,7 @@ ul {
 
 @media (max-width: 768px) {
     .nav-menu {
-        display: none; /* Ativado via JavaScript para Menu Mobile */
+        display: none;
     }
     .mobile-menu-toggle {
         display: block;
