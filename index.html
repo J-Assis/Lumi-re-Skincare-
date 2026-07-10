@@ -26,10 +26,16 @@
         <li><a href="blog.html">Blog</a></li>
     </ul>
 </nav>
-            <div class="header-actions">
-                <button aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button aria-label="Minha Conta"><i class="fa-regular fa-user"></i></button>
-                <button aria-label="Carrinho" class="cart-icon" data-count="2"><i class="fa-solid fa-bag-shopping"></i></button>
+           <div class="header-actions">
+                <a href="loja.html" class="action-btn" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></a>
+                
+                <a href="perfil.html" class="action-btn" aria-label="Minha Conta"><i class="fa-regular fa-user"></i></a>
+                
+                <a href="javascript:void(0)" onclick="toggleCart()" class="action-btn cart-icon" aria-label="Carrinho" style="position: relative; display: inline-block;">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" style="position: absolute; top: -8px; right: -10px; background: #e6baa8; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.65rem; font-family: var(--ff-sans); font-weight: 700;">0</span>
+                </a>
+                
                 <button aria-label="Menu Mobile" class="mobile-menu-toggle"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
