@@ -9,20 +9,30 @@
 </head>
 <body style="background-color: var(--clr-bg); color: var(--clr-text-dark); overflow-x: hidden;">
     
-<div id="cartToast" style="position: fixed; top: 20px; right: 20px; background: #332521; color: #FDFBF7; padding: 1rem 2rem; border-radius: 50px; font-family: var(--ff-sans); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; z-index: 3000; opacity: 0; transform: translateY(-20px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+    <!-- NOTIFICAÇÃO SUTIL -->
+    <div id="cartToast" style="position: fixed; top: 20px; right: 20px; background: #332521; color: #FDFBF7; padding: 1rem 2rem; border-radius: 50px; font-family: var(--ff-sans); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; z-index: 3000; opacity: 0; transform: translateY(-20px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         <i class="fa-solid fa-check" style="color: #e6baa8; margin-right: 8px;"></i> Adicionado ao carrinho
     </div>
         
-    
     <!-- HEADER EDITORIAL -->
     <header style="background-color: rgba(253, 251, 247, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--clr-border); position: sticky; top: 0; z-index: 1000; padding: 1.5rem 2rem;">
-        <nav style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; gap: 3rem;">
-            <a href="index.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: 0.3s;">Home</a>
-            <a href="loja.html" style="font-family: var(--ff-sans); color: var(--clr-primary); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 700;">Loja</a>
-            <a href="ingredientes.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Ativos</a>
-            <a href="sobre.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">O Manifesto</a>
-            <a href="resultados.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Casos Reais</a>
-            <a href="blog.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Diário</a>
+        <nav style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 3rem; position: relative;">
+            <div style="display: flex; gap: 3rem;">
+                <a href="index.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: 0.3s;">Home</a>
+                <a href="loja.html" style="font-family: var(--ff-sans); color: var(--clr-primary); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; font-weight: 700;">Loja</a>
+                <a href="ingredientes.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Ativos</a>
+                <a href="sobre.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">O Manifesto</a>
+                <a href="resultados.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Casos Reais</a>
+                <a href="blog.html" style="font-family: var(--ff-sans); color: var(--clr-text-dark); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;">Diário</a>
+            </div>
+
+            <!-- BOTÃO DO CARRINHO CORRIGIDO COM DESIGN HIGH-END -->
+            <div style="position: absolute; right: 0;">
+                <a href="javascript:void(0)" onclick="toggleCart()" style="position: relative; display: inline-flex; align-items: center; justify-content: center; color: #332521; font-size: 1.2rem; text-decoration: none; width: 32px; height: 32px;">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-count" style="position: absolute; top: -2px; right: -4px; background: #e6baa8; color: #FDFBF7; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-family: sans-serif; font-weight: 700; border: 1.5px solid #FDFBF7; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">0</span>
+                </a>
+            </div>
         </nav>
     </header>
 
@@ -36,32 +46,40 @@
             <div class="store-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
                 
                 <!-- Produto 1 -->
-                <div class="product-card" style="background-color: var(--clr-white); border-radius: 32px; padding: 1.5rem; border: 1px solid var(--clr-border); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative;">
-                    <span style="position: absolute; top: 2.5rem; left: 2.5rem; background: var(--clr-primary); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-family: var(--ff-sans); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; z-index: 2;">MAIS VENDIDO</span>
-                    <div style="overflow: hidden; border-radius: 24px; margin-bottom: 1.5rem; background: #fcfbfa;">
-                        <img src="https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=600&q=80" alt="Radiance Moisturizer" style="width: 100%; height: 350px; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="padding: 0 1rem 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                            <h3 style="font-family: var(--ff-serif); font-size: 1.5rem; font-weight: 400; color: var(--clr-text-dark);">Radiance Moisturizer</h3>
-                            <span style="font-family: var(--ff-sans); font-weight: 700; font-size: 1.2rem; color: var(--clr-text-dark);">R$ 189</span>
+                <div class="product-card" style="background-color: var(--clr-white); border-radius: 32px; padding: 1.5rem; border: 1px solid var(--clr-border); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="position: absolute; top: 2.5rem; left: 2.5rem; background: var(--clr-primary); color: white; padding: 0.4rem 1rem; border-radius: 50px; font-family: var(--ff-sans); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; z-index: 2;">MAIS VENDIDO</span>
+                        <div style="overflow: hidden; border-radius: 24px; margin-bottom: 1.5rem; background: #fcfbfa;">
+                            <img src="https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=600&q=80" alt="Radiance Moisturizer" style="width: 100%; height: 350px; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                         </div>
-                        <p style="font-family: var(--ff-sans); font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Textura nuvem. Toque aveludado com Ácido Hialurônico e aroma sutil de lavanda francesa. 50ml</p>
-                        <button onclick="addToCart('Radiance Moisturizer', 189, 'https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=600&q=80')" style="width: 100%; ...">RESERVAR PRODUTO</button>          </div>
+                        <div style="padding: 0 1rem 1rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                                <h3 style="font-family: var(--ff-serif); font-size: 1.5rem; font-weight: 400; color: var(--clr-text-dark);">Radiance Moisturizer</h3>
+                                <span style="font-family: var(--ff-sans); font-weight: 700; font-size: 1.2rem; color: var(--clr-text-dark);">R$ 189</span>
+                            </div>
+                            <p style="font-family: var(--ff-sans); font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Textura nuvem. Toque aveludado com Ácido Hialurônico e aroma sutil de lavanda francesa. 50ml</p>
+                        </div>
+                    </div>
+                    <!-- BOTÃO MINIMALISTA EDITORIAL -->
+                    <button onclick="addToCart('Radiance Moisturizer', 189, 'https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=600&q=80')" style="width: 100%; background: #332521; color: #FDFBF7; border: none; padding: 1.1rem; border-radius: 50px; font-family: var(--ff-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e6baa8'" onmouseout="this.style.background='#332521'">ADICIONAR À SACOLA</button>
                 </div>
 
                 <!-- Produto 2 -->
-                <div class="product-card" style="background-color: var(--clr-white); border-radius: 32px; padding: 1.5rem; border: 1px solid var(--clr-border); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative;">
-                    <div style="overflow: hidden; border-radius: 24px; margin-bottom: 1.5rem; background: #fcfbfa;">
-                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Glow Serum" style="width: 100%; height: 350px; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                    </div>
-                    <div style="padding: 0 1rem 1rem;">
-                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
-                            <h3 style="font-family: var(--ff-serif); font-size: 1.5rem; font-weight: 400; color: var(--clr-text-dark);">Aura Glow Serum</h3>
-                            <span style="font-family: var(--ff-sans); font-weight: 700; font-size: 1.2rem; color: var(--clr-text-dark);">R$ 210</span>
+                <div class="product-card" style="background-color: var(--clr-white); border-radius: 32px; padding: 1.5rem; border: 1px solid var(--clr-border); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="overflow: hidden; border-radius: 24px; margin-bottom: 1.5rem; background: #fcfbfa;">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Glow Serum" style="width: 100%; height: 350px; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                         </div>
-                        <p style="font-family: var(--ff-sans); font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Gotas de luminosidade pura. Hiperconcentrado em Vitamina C estabilizada e Rosa Mosqueta selvagem. 30ml</p>
-                      <button onclick="addToCart('Aura Glow Serum', 210, 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80')" style="width: 100%; ...">RESERVAR PRODUTO</button>        </div>
+                        <div style="padding: 0 1rem 1rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                                <h3 style="font-family: var(--ff-serif); font-size: 1.5rem; font-weight: 400; color: var(--clr-text-dark);">Aura Glow Serum</h3>
+                                <span style="font-family: var(--ff-sans); font-weight: 700; font-size: 1.2rem; color: var(--clr-text-dark);">R$ 210</span>
+                            </div>
+                            <p style="font-family: var(--ff-sans); font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 1.5rem; line-height: 1.6;">Gotas de luminosidade pura. Hiperconcentrado em Vitamina C estabilizada e Rosa Mosqueta selvagem. 30ml</p>
+                        </div>
+                    </div>
+                    <!-- BOTÃO MINIMALISTA EDITORIAL -->
+                    <button onclick="addToCart('Aura Glow Serum', 210, 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80')" style="width: 100%; background: #332521; color: #FDFBF7; border: none; padding: 1.1rem; border-radius: 50px; font-family: var(--ff-sans); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e6baa8'" onmouseout="this.style.background='#332521'">ADICIONAR À SACOLA</button>
                 </div>
 
             </div>
@@ -71,247 +89,220 @@
     <footer style="background-color: var(--clr-bg-alt); padding: 4rem 2rem; text-align: center; border-top: 1px solid var(--clr-border);">
         <p style="font-family: var(--ff-sans); font-size: 0.8rem; color: var(--clr-text-muted); letter-spacing: 0.05em;">LUMIÈRE LABORATOIRES — PARIS & SÃO PAULO</p>
     </footer>
+
     <!-- GAVETA LATERAL DO CARRINHO (ESTILO LUXO) -->
-<div id="cartDrawer" style="position: fixed; top: 0; right: -450px; width: 100%; max-width: 450px; height: 100vh; background: #FDFBF7; box-shadow: -10px 0 30px rgba(0,0,0,0.05); z-index: 2000; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; border-left: 1px solid var(--clr-border);">
-    
-    <!-- Topo do Carrinho -->
-    <div style="padding: 2rem; border-bottom: 1px solid var(--clr-border); display: flex; justify-content: space-between; align-items: center;">
-        <h3 style="font-family: var(--ff-serif); font-size: 1.5rem; margin: 0; font-weight: 400;">Sua Sacola</h3>
-       <button onclick="addToCart('Radiance Moisturizer', 189, 'https://images.unsplash.com/photo-1608248597481-496100c8c836?auto=format&fit=crop&w=600&q=80')" style="width: 100%; ...">RESERVAR PRODUTO</button>
+    <div id="cartDrawer" style="position: fixed; top: 0; right: -450px; width: 100%; max-width: 450px; height: 100vh; background: #FDFBF7; box-shadow: -10px 0 30px rgba(0,0,0,0.05); z-index: 2000; transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; border-left: 1px solid var(--clr-border);">
+        <!-- Topo do Carrinho -->
+        <div style="padding: 2rem; border-bottom: 1px solid var(--clr-border); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-family: var(--ff-serif); font-size: 1.5rem; margin: 0; font-weight: 400;">Sua Sacola</h3>
+            <button onclick="toggleCart()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--clr-text-dark);">&times;</button>
+        </div>
+
+        <!-- Lista de Itens Dinâmicos -->
+        <div id="cartItemsContainer" style="padding: 2rem; flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 1.5rem;">
+            <p id="emptyCartMessage" style="font-family: var(--ff-sans); color: var(--clr-text-muted); text-align: center; margin-top: 3rem;">Sua sacola está vazia.</p>
+        </div>
+
+        <!-- Totalizador e Checkout -->
+        <div style="padding: 2rem; border-top: 1px solid var(--clr-border); background: #FAF8F5;">
+            <div style="display: flex; justify-content: space-between; font-family: var(--ff-sans); margin-bottom: 1.5rem;">
+                <span style="color: var(--clr-text-muted);">Subtotal</span>
+                <strong id="cartTotalValue" style="color: var(--clr-text-dark); font-size: 1.2rem;">R$ 0,00</strong>
+            </div>
+            <button onclick="checkout()" style="width: 100%; background: var(--clr-primary); color: white; border: none; padding: 1.2rem; border-radius: 50px; font-family: var(--ff-sans); font-weight: 700; letter-spacing: 0.15em; font-size: 0.8rem; cursor: pointer; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">FINALIZAR COMPRA</button>
+        </div>
     </div>
 
-    <!--SIMULADOR PAY-->
+    <!-- SIMULADOR PAY (MODAL DO BACKDROP) -->
     <div id="checkoutModal" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(51, 37, 33, 0.4); backdrop-filter: blur(5px); z-index: 3000; display: none; align-items: center; justify-content: center; padding: 1rem;">
-    <div style="background: #FDFBF7; width: 100%; max-width: 500px; border-radius: 24px; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.15); font-family: var(--ff-sans); position: relative; border: 1px solid var(--clr-border);">
-        
-        <button onclick="closeCheckoutModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--clr-text-dark);">&times;</button>
-        
-        <h3 style="font-family: var(--ff-serif); font-size: 1.8rem; font-weight: 400; margin: 0 0 0.5rem 0; color: var(--clr-text-dark);">Ambiente Seguro</h3>
-        <p style="color: var(--clr-text-muted); font-size: 0.85rem; margin-bottom: 2rem;"><i class="fa-solid fa-lock" style="color: #e6baa8; margin-right: 5px;"></i> Lumière Payment Gateway (Simulador)</p>
-
-        <div id="checkoutFormStep">
-            <div style="margin-bottom: 1.2rem;">
-                <label style="display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; color: var(--clr-text-dark);">NOME COMPLETO</label>
-                <input type="text" id="simName" placeholder="Ex: J-Assis Silva" style="width: 100%; padding: 0.9rem; border: 1px solid var(--clr-border); border-radius: 12px; background: transparent; font-family: inherit;">
-            </div>
-
-            <div style="margin-bottom: 1.5rem;">
-                <label style="display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; color: var(--clr-text-dark);">FORMA DE PAGAMENTO</label>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <button onclick="selectSimMethod('pix')" id="btnMethodPix" style="padding: 1rem; border: 2px solid #e6baa8; background: #faf6f2; border-radius: 12px; cursor: pointer; font-weight: 700; color: var(--clr-text-dark); display: flex; align-items: center; justify-content: center; gap: 8px;"><i class="fa-solid fa-pix" style="color: #32BCAD;"></i> Pix</button>
-                    <button onclick="selectSimMethod('card')" id="btnMethodCard" style="padding: 1rem; border: 1px solid var(--clr-border); background: transparent; border-radius: 12px; cursor: pointer; font-weight: 700; color: var(--clr-text-dark); display: flex; align-items: center; justify-content: center; gap: 8px;"><i class="fa-regular fa-credit-card"></i> Cartão</button>
-                </div>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--clr-border); padding-top: 1.5rem; margin-bottom: 1.5rem;">
-                <span style="color: var(--clr-text-muted);">Total a pagar:</span>
-                <strong id="modalTotalValue" style="font-size: 1.3rem; color: var(--clr-text-dark);">R$ 0,00</strong>
-            </div>
-
-            <button onclick="processSimPayment()" style="width: 100%; background: var(--clr-primary); color: white; border: none; padding: 1.2rem; border-radius: 50px; font-weight: 700; letter-spacing: 0.1em; cursor: pointer;">CONFIRMAR E PAGAR</button>
-        </div>
-
-        <div id="checkoutLoadingStep" style="display: none; text-align: center; padding: 2rem 0;">
-            <i class="fa-solid fa-spinner fa-spin" style="font-size: 3rem; color: #e6baa8; margin-bottom: 1.5rem;"></i>
-            <h4 style="font-family: var(--ff-serif); font-size: 1.2rem; margin: 0 0 0.5rem 0;">Processando transação criptografada...</h4>
-            <p style="color: var(--clr-text-muted); font-size: 0.85rem;">Validando dados com a operadora financeira.</p>
-        </div>
-
-        <div id="checkoutSuccessStep" style="display: none; text-align: center; padding: 1rem 0;">
-            <div style="width: 70px; height: 70px; background: #e6baa8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;"><i class="fa-solid fa-check"></i></div>
-            <h4 style="font-family: var(--ff-serif); font-size: 1.5rem; margin: 0 0 0.5rem 0; color: var(--clr-text-dark);">Pedido Confirmado!</h4>
-            <p style="color: var(--clr-text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">O pagamento foi aprovado com sucesso. O seu e-mail receberá a confirmação e o código de rastreamento do envio imediatamente.</p>
-            <button onclick="closeCheckoutModal()" style="width: 100%; background: #332521; color: white; border: none; padding: 1rem; border-radius: 50px; font-weight: 700; cursor: pointer;">VOLTAR À LOJA</button>
-        </div>
-    </div>
-</div>
-    
-    <!-- Lista de Itens Dinâmicos -->
-    <div id="cartItemsContainer" style="padding: 2rem; flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 1.5rem;">
-        <!-- Itens injetados via JavaScript vão aparecer aqui -->
-        <p id="emptyCartMessage" style="font-family: var(--ff-sans); color: var(--clr-text-muted); text-align: center; margin-top: 3rem;">Sua sacola está vazia.</p>
-    </div>
-
-    <!-- Totalizador e Checkout -->
-    <div style="padding: 2rem; border-top: 1px solid var(--clr-border); background: #FAF8F5;">
-        <div style="display: flex; justify-content: space-between; font-family: var(--ff-sans); margin-bottom: 1.5rem;">
-            <span style="color: var(--clr-text-muted);">Subtotal</span>
-            <strong id="cartTotalValue" style="color: var(--clr-text-dark); font-size: 1.2rem;">R$ 0,00</strong>
-        </div>
-       <button onclick="checkout()" style="width: 100%; background: var(--clr-primary); color: white; border: none; padding: 1.2rem; border-radius: 50px; font-family: var(--ff-sans); font-weight: 700; letter-spacing: 0.15em; font-size: 0.8rem; cursor: pointer; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">FINALIZAR COMPRA</button>
-    </div>
-</div>
-
-<!-- Fundo escurecido ao abrir o carrinho -->
-<div id="cartOverlay" onclick="toggleCart()" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.2); z-index: 1999; display: none; backdrop-filter: blur(2px);"></div>
-
-<!-- ENGINE JAVASCRIPT DO CARRINHO CONTROLLER -->
-<script>
-    let cart = [];
-
-    function toggleCart() {
-        const drawer = document.getElementById('cartDrawer');
-        const overlay = document.getElementById('cartOverlay');
-        if(drawer.style.right === '0px') {
-            drawer.style.right = '-450px';
-            overlay.style.display = 'none';
-        } else {
-            drawer.style.right = '0px';
-            overlay.style.display = 'block';
-        }
-    }
-
-    function showToast() {
-        const toast = document.getElementById('cartToast');
-        toast.style.opacity = '1';
-        toast.style.transform = 'translateY(0)';
-        
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transform = 'translateY(-20px)';
-        }, 2000);
-    }
-
-function addToCart(name, price, img) {
-        const existingItem = window.cart.find(item => item.name === name);
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            window.cart.push({name, price, img, quantity: 1});
-        }
-        
-        updateCartUI(); // Atualiza os itens e o totalizador
-        showToast();    // Mostra o aviso sutil "Adicionado ao carrinho"
-        toggleCart();   // <--- ESSA LINHA FAZ A ABA DO CARRINHO ABRIR AO LADO!
-    }
-
-    function removeFromCart(name) {
-        cart = cart.filter(item => item.name !== name);
-        updateCartUI();
-    }
-
-    function updateCartUI() {
-        const container = document.getElementById('cartItemsContainer');
-        const totalValueSpan = document.getElementById('cartTotalValue');
-        const badgeCount = document.querySelector('.cart-count');
-        
-        container.innerHTML = '';
-        
-        if(cart.length === 0) {
-            container.innerHTML = '<p style="font-family: var(--ff-sans); color: var(--clr-text-muted); text-align: center; margin-top: 3rem;">Sua sacola está vazia.</p>';
-            totalValueSpan.innerText = 'R$ 0,00';
-            if(badgeCount) badgeCount.innerText = '0';
-            return;
-        }
-
-        let total = 0;
-        let totalItems = 0;
-
-        cart.forEach(item => {
-            total += item.price * item.quantity;
-            totalItems += item.quantity;
-
-            container.innerHTML += `
-                <div style="display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
-                    <img src="${item.img}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 12px;">
-                    <div style="flex: 1; font-family: var(--ff-sans);">
-                        <h4 style="margin: 0 0 0.2rem; font-family: var(--ff-serif); font-size: 1rem; font-weight:400;">${item.name}</h4>
-                        <span style="color: var(--clr-text-muted); font-size: 0.85rem;">${item.quantity}x R$ ${item.price}</span>
-                    </div>
-                    <button onclick="removeFromCart('${item.name}')" style="background: none; border: none; color: #c94a4a; cursor: pointer; font-size: 0.9rem;"><i class="fa-regular fa-trash-can"></i></button>
-                </div>
-            `;
-        });
-
-        totalValueSpan.innerText = `R$ ${total},00`;
-        if(badgeCount) badgeCount.innerText = totalItems;
-    }
-
-    // ALTERADO DE RESERVA PARA COMPRA COMPLETA
-    function checkout() {
-        if(cart.length === 0) {
-            alert("Sua sacola está vazia! Adicione um produto antes de finalizar.");
-            return;
-        }
-        
-        let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        let resumoProdutos = cart.map(item => `- ${item.quantity}x ${item.name}`).join('\n');
-
-        toggleCart();
-
-        // Texto alterado para Compra Concluída
-        alert(`✨ COMPRA CONCLUÍDA COM SUCESSO! ✨\n\nObrigado por escolher a Lumière Skincare.\n\nResumo do seu pedido:\n${resumoProdutos}\n\nValor Total: R$ ${total},00\n\nEnviamos os detalhes da confirmação do pagamento e o código de rastreio para o seu e-mail registrado.`);
-        
-        cart = [];
-        updateCartUI();
-    }
-    let selectedMethod = 'pix';
-    let currentTotal = 0;
-
-    // Substitua a antiga função checkout por esta:
-    function checkout() {
-        if(cart.length === 0) {
-            alert("Sua sacola está vazia! Adicione um produto antes de finalizar.");
-            return;
-        }
-        
-        // Calcula o valor total do carrinho atual
-        currentTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        document.getElementById('modalTotalValue').innerText = `R$ ${currentTotal},00`;
-
-        // Fecha a gaveta lateral do carrinho e abre o Simulador na tela
-        toggleCart();
-        document.getElementById('checkoutModal').style.display = 'flex';
-        
-        // Reseta as etapas do simulador caso tenha aberto antes
-        document.getElementById('checkoutFormStep').style.display = 'block';
-        document.getElementById('checkoutLoadingStep').style.display = 'none';
-        document.getElementById('checkoutSuccessStep').style.display = 'none';
-    }
-
-    function closeCheckoutModal() {
-        document.getElementById('checkoutModal').style.display = 'none';
-    }
-
-    function selectSimMethod(method) {
-        selectedMethod = method;
-        const btnPix = document.getElementById('btnMethodPix');
-        const btnCard = document.getElementById('btnMethodCard');
-
-        if(method === 'pix') {
-            btnPix.style.border = '2px solid #e6baa8';
-            btnPix.style.background = '#faf6f2';
-            btnCard.style.border = '1px solid var(--clr-border)';
-            btnCard.style.background = 'transparent';
-        } else {
-            btnCard.style.border = '2px solid #e6baa8';
-            btnCard.style.background = '#faf6f2';
-            btnPix.style.border = '1px solid var(--clr-border)';
-            btnPix.style.background = 'transparent';
-        }
-    }
-
-    function processSimPayment() {
-        const nameInput = document.getElementById('simName').value;
-        if(!nameInput.trim()) {
-            alert("Por favor, digite seu nome completo para a simulação da nota fiscal.");
-            return;
-        }
-
-        // Passa para a animação de carregamento
-        document.getElementById('checkoutFormStep').style.display = 'none';
-        document.getElementById('checkoutLoadingStep').style.display = 'block';
-
-        // Simula o tempo de resposta do banco (2.5 segundos)
-        setTimeout(() => {
-            document.getElementById('checkoutLoadingStep').style.display = 'none';
-            document.getElementById('checkoutSuccessStep').style.display = 'block';
+        <div style="background: #FDFBF7; width: 100%; max-width: 500px; border-radius: 24px; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.15); font-family: var(--ff-sans); position: relative; border: 1px solid var(--clr-border);">
             
-            // Limpa o carrinho de compras real do site de forma sutil após o sucesso
-            cart = [];
+            <button onclick="closeCheckoutModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--clr-text-dark);">&times;</button>
+            
+            <h3 style="font-family: var(--ff-serif); font-size: 1.8rem; font-weight: 400; margin: 0 0 0.5rem 0; color: var(--clr-text-dark);">Ambiente Seguro</h3>
+            <p style="color: var(--clr-text-muted); font-size: 0.85rem; margin-bottom: 2rem;"><i class="fa-solid fa-lock" style="color: #e6baa8; margin-right: 5px;"></i> Lumière Payment Gateway (Simulador)</p>
+
+            <div id="checkoutFormStep">
+                <div style="margin-bottom: 1.2rem;">
+                    <label style="display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; color: var(--clr-text-dark);">NOME COMPLETO</label>
+                    <input type="text" id="simName" placeholder="Ex: J-Assis Silva" style="width: 100%; padding: 0.9rem; border: 1px solid var(--clr-border); border-radius: 12px; background: transparent; font-family: inherit;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; color: var(--clr-text-dark);">FORMA DE PAGAMENTO</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <button onclick="selectSimMethod('pix')" id="btnMethodPix" style="padding: 1rem; border: 2px solid #e6baa8; background: #faf6f2; border-radius: 12px; cursor: pointer; font-weight: 700; color: var(--clr-text-dark); display: flex; align-items: center; justify-content: center; gap: 8px;"><i class="fa-solid fa-pix" style="color: #32BCAD;"></i> Pix</button>
+                        <button onclick="selectSimMethod('card')" id="btnMethodCard" style="padding: 1rem; border: 1px solid var(--clr-border); background: transparent; border-radius: 12px; cursor: pointer; font-weight: 700; color: var(--clr-text-dark); display: flex; align-items: center; justify-content: center; gap: 8px;"><i class="fa-regular fa-credit-card"></i> Cartão</button>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--clr-border); padding-top: 1.5rem; margin-bottom: 1.5rem;">
+                    <span style="color: var(--clr-text-muted);">Total a pagar:</span>
+                    <strong id="modalTotalValue" style="font-size: 1.3rem; color: var(--clr-text-dark);">R$ 0,00</strong>
+                </div>
+
+                <button onclick="processSimPayment()" style="width: 100%; background: var(--clr-primary); color: white; border: none; padding: 1.2rem; border-radius: 50px; font-weight: 700; letter-spacing: 0.1em; cursor: pointer;">CONFIRMAR E PAGAR</button>
+            </div>
+
+            <div id="checkoutLoadingStep" style="display: none; text-align: center; padding: 2rem 0;">
+                <i class="fa-solid fa-spinner fa-spin" style="font-size: 3rem; color: #e6baa8; margin-bottom: 1.5rem;"></i>
+                <h4 style="font-family: var(--ff-serif); font-size: 1.2rem; margin: 0 0 0.5rem 0;">Processando transação criptografada...</h4>
+                <p style="color: var(--clr-text-muted); font-size: 0.85rem;">Validando dados com a operadora financeira.</p>
+            </div>
+
+            <div id="checkoutSuccessStep" style="display: none; text-align: center; padding: 1rem 0;">
+                <div style="width: 70px; height: 70px; background: #e6baa8; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem;"><i class="fa-solid fa-check"></i></div>
+                <h4 style="font-family: var(--ff-serif); font-size: 1.5rem; margin: 0 0 0.5rem 0; color: var(--clr-text-dark);">Pedido Confirmado!</h4>
+                <p style="color: var(--clr-text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">O pagamento foi aprovado com sucesso. O seu e-mail receberá a confirmação e o código de rastreamento do envio imediatamente.</p>
+                <button onclick="closeCheckoutModal()" style="width: 100%; background: #332521; color: white; border: none; padding: 1rem; border-radius: 50px; font-weight: 700; cursor: pointer;">VOLTAR À LOJA</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fundo escurecido ao abrir o carrinho -->
+    <div id="cartOverlay" onclick="toggleCart()" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.2); z-index: 1999; display: none; backdrop-filter: blur(2px);"></div>
+
+    <!-- ENGINE JAVASCRIPT DO CARRINHO CONTROLLER -->
+    <script>
+        let cart = [];
+        let selectedMethod = 'pix';
+        let currentTotal = 0;
+
+        function toggleCart() {
+            const drawer = document.getElementById('cartDrawer');
+            const overlay = document.getElementById('cartOverlay');
+            if(drawer.style.right === '0px') {
+                drawer.style.right = '-450px';
+                overlay.style.display = 'none';
+            } else {
+                drawer.style.right = '0px';
+                overlay.style.display = 'block';
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('cartToast');
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-20px)';
+            }, 2000);
+        }
+
+        function addToCart(name, price, img) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({name, price, img, quantity: 1});
+            }
+            
+            updateCartUI(); 
+            showToast();    
+            toggleCart();   
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
             updateCartUI();
-        }, 2500);
-    }
-</script>
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const totalValueSpan = document.getElementById('cartTotalValue');
+            const badgeCount = document.querySelector('.cart-count');
+            
+            container.innerHTML = '';
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="font-family: var(--ff-sans); color: var(--clr-text-muted); text-align: center; margin-top: 3rem;">Sua sacola está vazia.</p>';
+                totalValueSpan.innerText = 'R$ 0,00';
+                if(badgeCount) badgeCount.innerText = '0';
+                return;
+            }
+
+            let total = 0;
+            let totalItems = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                totalItems += item.quantity;
+
+                container.innerHTML += `
+                    <div style="display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                        <img src="${item.img}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 12px;">
+                        <div style="flex: 1; font-family: var(--ff-sans);">
+                            <h4 style="margin: 0 0 0.2rem; font-family: var(--ff-serif); font-size: 1rem; font-weight:400;">${item.name}</h4>
+                            <span style="color: var(--clr-text-muted); font-size: 0.85rem;">${item.quantity}x R$ ${item.price}</span>
+                        </div>
+                        <button onclick="removeFromCart('${item.name}')" style="background: none; border: none; color: #c94a4a; cursor: pointer; font-size: 0.9rem;"><i class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                `;
+            });
+
+            totalValueSpan.innerText = `R$ ${total},00`;
+            if(badgeCount) badgeCount.innerText = totalItems;
+        }
+
+        function checkout() {
+            if(cart.length === 0) {
+                alert("Sua sacola está vazia! Adicione um produto antes de finalizar.");
+                return;
+            }
+            
+            currentTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            document.getElementById('modalTotalValue').innerText = `R$ ${currentTotal},00`;
+
+            toggleCart();
+            document.getElementById('checkoutModal').style.display = 'flex';
+            
+            document.getElementById('checkoutFormStep').style.display = 'block';
+            document.getElementById('checkoutLoadingStep').style.display = 'none';
+            document.getElementById('checkoutSuccessStep').style.display = 'none';
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function selectSimMethod(method) {
+            selectedMethod = method;
+            const btnPix = document.getElementById('btnMethodPix');
+            const btnCard = document.getElementById('btnMethodCard');
+
+            if(method === 'pix') {
+                btnPix.style.border = '2px solid #e6baa8';
+                btnPix.style.background = '#faf6f2';
+                btnCard.style.border = '1px solid var(--clr-border)';
+                btnCard.style.background = 'transparent';
+            } else {
+                btnCard.style.border = '2px solid #e6baa8';
+                btnCard.style.background = '#faf6f2';
+                btnPix.style.border = '1px solid var(--clr-border)';
+                btnPix.style.background = 'transparent';
+            }
+        }
+
+        function processSimPayment() {
+            const nameInput = document.getElementById('simName').value;
+            if(!nameInput.trim()) {
+                alert("Por favor, digite seu nome completo para a simulação da nota fiscal.");
+                return;
+            }
+
+            document.getElementById('checkoutFormStep').style.display = 'none';
+            document.getElementById('checkoutLoadingStep').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('checkoutLoadingStep').style.display = 'none';
+                document.getElementById('checkoutSuccessStep').style.display = 'block';
+                
+                cart = [];
+                updateCartUI();
+            }, 2500);
+        }
+    </script>
 </body>
-</html> 
+</html>
